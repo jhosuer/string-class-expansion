@@ -74,6 +74,10 @@ String.prototype.hasVowels = function() {
     }
       
 
-
+    String.prototype.wordCount = function() {
+        let cumb = Object.values(this).join('');
+        let newNumber = cumb.words();
+        return newNumber.length;
+    }
       
 module.exports = String;
