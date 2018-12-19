@@ -51,5 +51,14 @@ String.prototype.hasVowels = function() {
       }
       return str;
     }
+    
+
+    String.prototype.isQuestion = function() {
+        let str = Object.values(this).join('');
+        let question = /\?$/;
+        return question.test(str);
+      }
+      
+      'Kazeem?'.isQuestion();
 
 module.exports = String;
