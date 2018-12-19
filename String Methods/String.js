@@ -51,7 +51,7 @@ String.prototype.hasVowels = function() {
       }
       return str;
     }
-    
+
 
     String.prototype.isQuestion = function() {
         let str = Object.values(this).join('');
@@ -59,6 +59,21 @@ String.prototype.hasVowels = function() {
         return question.test(str);
       }
       
-      'Kazeem?'.isQuestion();
 
+      String.prototype.words = function() {
+        let str = Object.values(this).join('');
+        let checker = /(\w+)(?:\s+)/;
+        let initialResult = str.split(checker);
+        let c = [];
+        for(let d of initialResult) {
+            if(d !== '') {
+                c.push(d);
+            }
+        }
+    return c;
+    }
+      
+
+
+      
 module.exports = String;
