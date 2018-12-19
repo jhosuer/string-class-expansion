@@ -40,4 +40,16 @@ String.prototype.hasVowels = function() {
     return nn;
   }
 
+
+  String.prototype.UcFirst = function(){
+    let str = Object.values(this).join('');
+      if(str[0] == str[0].toUpperCase()){
+        str = str;
+      }
+      else {
+        str = str.replace(str[0], str[0].toUpperCase());
+      }
+      return str;
+    }
+
 module.exports = String;
