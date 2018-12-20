@@ -137,5 +137,21 @@ String.prototype.hasVowels = function() {
         let nRes = result.join('');
         return nRes;
       }
+
+      String.prototype.numberWords = function() {
+        let num = Object.values(this).join('');
+       let digit = ['one', 'two', 'three','four','five','six','seven','eight','nine']; 
+        let newAr = [];
+        for(let index = 0; index < num.length; index++) {
+          for (let jdex = 0; jdex < digit.length; jdex++) {
+            if(num[index] == jdex + 1) {
+              newAr.push(digit[jdex]);
+             }
+          }
+        }
+       let res = newAr.join(' ');
+       return res;
+      }
+      
       
 module.exports = String;
