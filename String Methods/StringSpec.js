@@ -1,9 +1,21 @@
-require(StringSpec);
-
-describe("has Vowel", function() {
-    it("has vowel", function() {
-        expect("abc".repeat(2)).toEqual("abcabc");
-        expect("abc".repeat(0)).toEqual("");
+ describe('Test for hasVowels', () => {
+    let string = new String();
+    it('A simple case where no vowel exist', () => {
+        expect(string.hasVowels()).toBeFalsy();
     });
-});
+    const newStr = 'Joshua'.hasVowels();
+    it('A simple case where Vowel is both upper and lower', () => {
+        expect(newStr).toBeTruthy();
+    });
+ });
 
+ describe('Test for hasVowels', () => {
+    let string = new String();
+    it('A simple case where no vowel exist', () => {
+        expect(string.hasVowels()).toBeFalsy();
+    });
+    const newStr = 'Joshua'.hasVowels();
+    it('A simple case where Vowel is both upper and lower', () => {
+        expect(newStr).toBeTruthy();
+    });
+ });
