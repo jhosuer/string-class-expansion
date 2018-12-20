@@ -100,8 +100,6 @@ String.prototype.hasVowels = function() {
         return Number(c);
       
       }
-
-      
       String.prototype.inverseCase = function() {
         let str = Object.values(this).join('');
       
@@ -119,6 +117,25 @@ String.prototype.hasVowels = function() {
         }
         let nResult = result.join('');
         return nResult;
+      }
+
+      String.prototype.alternatingCase = function() {
+        let str = Object.values(this).join('');
+        let result = [];
+        let newStr = str.split('');
+        newStr.forEach((value,index) => {
+          if(index === 0) {
+            result.push(value.toLowerCase());
+          }
+          else if(index % 2 == 0) {
+            result.push(value.toLowerCase());
+          }
+          else {
+            result.push(value.toUpperCase());
+          }
+        });
+        let nRes = result.join('');
+        return nRes;
       }
       
 module.exports = String;
