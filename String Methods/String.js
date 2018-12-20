@@ -1,161 +1,153 @@
 String.prototype.hasVowels = function() {
-    let str = '';
     let checker = /(a|e|i|o|u)/i;
-    str = Object.values(this).join('');
-    return checker.test(str);
+    return checker.test(this);
   }
 
-  String.prototype.toUpper = function(){
-    let str = Object.values(this).join('');
-    let strNew = str.split('');
-    let strN = [];
-    for(let index = 0; index < strNew.length; index++) {
-      if((str[index].charCodeAt() >= 97) && (str[index].charCodeAt() <= 121)) {
-        let a = str[index].charCodeAt() - 32;
-      strN.push(String.fromCharCode(a));  
-      }
-      else{
-        strN.push(str[index]);
-      }
+String.prototype.toUpper = function(){
+    let pointer = this.split('');
+    let resultGroup = [];
+    for(let index = 0; index < pointer.length; index++) {
+        if((this[index].charCodeAt() >= 97) && (this[index].charCodeAt() <= 121)) {
+            let asciiRep = this[index].charCodeAt() - 32;
+            resultGroup.push(String.fromCharCode(asciiRep));  
+        }else{
+            resultGroup.push(this[index]);
+        }
     }
-    let nn = strN.join('');
-    return nn;
-  }
+    let result = resultGroup.join('');
+    return result;
+}
 
 
-  String.prototype.toLower = function() {
-    let str = Object.values(this).join('');
-    let strNew = str.split('');
-    let strN = [];
-    for(let index = 0; index < strNew.length; index++) {
-      if((str[index].charCodeAt() >= 65) && (str[index].charCodeAt() <= 90)) {
-        let a = str[index].charCodeAt() + 32;
-      strN.push(String.fromCharCode(a));  
-      }
-      else{
-        strN.push(str[index]);
-      }
+String.prototype.toLower = function() {
+    let pointer = this.split('');
+    let resultGroup = [];
+    for(let index = 0; index < pointer.length; index++) {
+        if((this[index].charCodeAt() >= 65) && (this[index].charCodeAt() <= 90)) {
+        let asciiRep = this[index].charCodeAt() + 32;
+        resultGroup.push(String.fromCharCode(asciiRep));  
+        }
+        else{
+        resultGroup.push(this[index]);
+        }
     }
-    let nn =strN.join('');
-    return nn;
-  }
+    let result =resultGroup.join('');
+    return result;
+}
 
 
-  String.prototype.UcFirst = function(){
-    let str = Object.values(this).join('');
-      if(str[0] == str[0].toUpperCase()){
-        str = str;
-      }
-      else {
-        str = str.replace(str[0], str[0].toUpperCase());
-      }
-      return str;
+String.prototype.UcFirst = function(){
+    let pointer = Object.values(this).join('');
+    if(pointer[0] == pointer[0].toUpperCase()){
+        pointer = pointer;
     }
+    else {
+        pointer = pointer.replace(pointer[0], pointer[0].toUpperCase());
+    }
+    return pointer;
+}
 
 
-    String.prototype.isQuestion = function() {
-        let str = Object.values(this).join('');
-        let question = /\?$/;
-        return question.test(str.trim());
-      }
+String.prototype.isQuestion = function() {
+    let question = /\?$/;
+    return question.test(this.trim());
+}
+    
+
+String.prototype.words = function() {
+    let pointer = Object.values(this).join('');
+    let checker = /(\w+)(?:\s+)/;
+    let initialResult = pointer.split(checker);
+    let result = [];
+    for(let value of initialResult) {
+        if(value !== '') {
+            result.push(value);
+        }
+    }
+    return result;
+}
       
 
-      String.prototype.words = function() {
-        let str = Object.values(this).join('');
-        let checker = /(\w+)(?:\s+)/;
-        let initialResult = str.split(checker);
-        let c = [];
-        for(let d of initialResult) {
-            if(d !== '') {
-                c.push(d);
+String.prototype.wordCount = function() {
+    let result = this.words();
+    return result.length;
+}
+
+String.prototype.toCurrency = function(){
+
+}
+    
+    
+String.prototype.fromCurrency = function() {
+    let input = this.split('');
+    let resultGroup = [];
+    input.forEach((value) => {
+        if(value == ',') {
+        resultGroup.push('');
+        }
+        else {
+        resultGroup.push(value);
+        }
+    })
+    let result = resultGroup.join('');
+    return Number(result);
+
+}
+String.prototype.inverseCase = function() {
+    let input = Object.values(this).join('');
+    let resultGroup = [];
+    for(index = 0; index < input.length; index++) {
+        if(input[index] === input[index].toLower()) {
+            resultGroup.push(input[index].toUpper());
+        }
+        else if(input[index] === input[index].toUpper()) {
+        resultGroup.push(input[index].toLower());
+        }
+        else {
+        resultGroup.push(input[index]);
+        }
+    }
+    let result = resultGroup.join('');
+    return result;
+}
+
+String.prototype.alternatingCase = function() {
+    let input = Object.values(this).join('');
+    let resultGroup = [];
+    let inputGroup = input.split('');
+    inputGroup.forEach((value,index) => {
+        if(index === 0) {
+            resultGroup.push(value.toLowerCase());
+        }
+        else if(index % 2 == 0) {
+            resultGroup.push(value.toLowerCase());
+        }
+        else {
+            resultGroup.push(value.toUpperCase());
+        }
+    });
+    let result = resultGroup.join('');
+    return result;
+}
+
+String.prototype.numberWords = function() {
+    let input = Object.values(this).join('');
+    let digit = ['zero','one', 'two', 'three','four','five','six','seven','eight','nine']; 
+    let resultGroup = [];
+    for(let index = 0; index < input.length; index++) {
+        for (let indexOne = 0; indexOne < digit.length; indexOne++) {
+            if(input[index] == indexOne) {
+                resultGroup.push(digit[indexOne]);
             }
         }
-    return c;
     }
-      
+    let result = resultGroup.join(' ');
+    return result;
+}
 
-    String.prototype.wordCount = function() {
-        let cumb = Object.values(this).join('');
-        let newNumber = cumb.words();
-        return newNumber.length;
-    }
-
-    String.prototype.toCurrency = function(){
-
-    }
-    
-    
-    String.prototype.fromCurrency = function() {
-        let a = this.split('');
-        let b = [];
-        a.forEach((value) => {
-          if(value == ',') {
-            b.push('');
-          }
-          else {
-            b.push(value);
-          }
-        })
-        let c = b.join('');
-        return Number(c);
-      
-      }
-      String.prototype.inverseCase = function() {
-        let str = Object.values(this).join('');
-      
-          let result = [];
-        for(index = 0; index < str.length; index++) {
-          if(str[index] === str[index].toLower()) {
-              result.push(str[index].toUpper());
-          }
-          else if(str[index] === str[index].toUpper()) {
-            result.push(str[index].toLower());
-          }
-          else {
-            result.push(str[index]);
-          }
-        }
-        let nResult = result.join('');
-        return nResult;
-      }
-
-      String.prototype.alternatingCase = function() {
-        let str = Object.values(this).join('');
-        let result = [];
-        let newStr = str.split('');
-        newStr.forEach((value,index) => {
-          if(index === 0) {
-            result.push(value.toLowerCase());
-          }
-          else if(index % 2 == 0) {
-            result.push(value.toLowerCase());
-          }
-          else {
-            result.push(value.toUpperCase());
-          }
-        });
-        let nRes = result.join('');
-        return nRes;
-      }
-
-      String.prototype.numberWords = function() {
-        let num = Object.values(this).join('');
-       let digit = ['zero','one', 'two', 'three','four','five','six','seven','eight','nine']; 
-        let newAr = [];
-        for(let index = 0; index < num.length; index++) {
-          for (let jdex = 0; jdex < digit.length; jdex++) {
-            if(num[index] == jdex) {
-              newAr.push(digit[jdex]);
-             }
-          }
-        }
-       let res = newAr.join(' ');
-       return res;
-      }
-      
-    String.prototype.isDigit = function() {
-        let numberChecker = /^\d{1}$/;
-        return numberChecker.test(this);
-    }
+String.prototype.isDigit = function() {
+    let numberChecker = /^\d{1}$/;
+    return numberChecker.test(this);
+}
 
 module.exports = String;
