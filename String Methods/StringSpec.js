@@ -174,3 +174,22 @@ let string = new String();
         expect(str3).toBe('zero zero zero zero zero zero zero zero zero zero zero one one one one zero zero zero');
     });
  });
+
+ describe('check if the number returned is a digit', () => {
+    const str = '567'.isDigit();
+    it('This should check if there is one or more number passed in and  return the appropriate boolean value', () => {
+        expect(str).toBeFalsy();
+    });
+    const str1 = '7'.isDigit();
+    it('This should check if there is one or more number passed in and  return the appropriate boolean value', () => {
+        expect(str1).toBeTruthy();
+    });
+    const str2 = '560,0060-7'.isDigit();
+    it('This should check if there is one or more number passed in and  return the appropriate boolean value', () => {
+        expect(str2).toBeFalsy();
+    });
+    const str3 = '000000000001111000'.isDigit();
+    it('This should check if there is one or more number passed in and  return the appropriate boolean value', () => {
+        expect(str3).not.toBeTruthy();
+    });
+ });
