@@ -56,7 +56,7 @@ String.prototype.hasVowels = function() {
     String.prototype.isQuestion = function() {
         let str = Object.values(this).join('');
         let question = /\?$/;
-        return question.test(str);
+        return question.test(str.trim());
       }
       
 
