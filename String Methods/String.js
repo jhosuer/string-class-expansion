@@ -100,5 +100,25 @@ String.prototype.hasVowels = function() {
         return Number(c);
       
       }
+
+      
+      String.prototype.inverseCase = function() {
+        let str = Object.values(this).join('');
+      
+          let result = [];
+        for(index = 0; index < str.length; index++) {
+          if(str[index] === str[index].toLower()) {
+              result.push(str[index].toUpper());
+          }
+          else if(str[index] === str[index].toUpper()) {
+            result.push(str[index].toLower());
+          }
+          else {
+            result.push(str[index]);
+          }
+        }
+        let nResult = result.join('');
+        return nResult;
+      }
       
 module.exports = String;
