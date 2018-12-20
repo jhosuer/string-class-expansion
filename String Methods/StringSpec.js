@@ -136,3 +136,22 @@ let string = new String();
         expect(str3).toBe('i GO PLACES LIKE IT WAS MADE FROM MY DRESSES');
     });
  });
+
+ describe('This returns the letters in alternating cases. It must start with a lower case', () => {
+    const str = 'Joshhhghhhhdhhdhaaa'.alternatingCase();
+    it('To remove the comma in the first two digits', () => {
+        expect(str).toBe('jOsHhHgHhHhDhHdHaAa');
+    });
+    const str1 = 'joghdjhdhjadbdhsfjmnsf'.alternatingCase();
+    it('To check that the string is not a question', () => {
+        expect(str1).toBe('jOgHdJhDhJaDbDhSfJmNsF');
+    });
+    const str2 = 'GonzaloHiguainThrowBack'.alternatingCase();
+    it('To check that the string is a question', () => {
+        expect(str2).toBe('gOnZaLoHiGuAiNtHrOwBaCk');
+    });
+    const str3 = 'IaintLikeGHGHHGHGHGHGHG'.alternatingCase();
+    it('To check that the string is a question', () => {
+        expect(str3).toBe('iAiNtLiKeGhGhHgHgHgHgHg');
+    });
+ });
