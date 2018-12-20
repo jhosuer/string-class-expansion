@@ -140,11 +140,11 @@ String.prototype.hasVowels = function() {
 
       String.prototype.numberWords = function() {
         let num = Object.values(this).join('');
-       let digit = ['one', 'two', 'three','four','five','six','seven','eight','nine']; 
+       let digit = ['zero','one', 'two', 'three','four','five','six','seven','eight','nine']; 
         let newAr = [];
         for(let index = 0; index < num.length; index++) {
           for (let jdex = 0; jdex < digit.length; jdex++) {
-            if(num[index] == jdex + 1) {
+            if(num[index] == jdex) {
               newAr.push(digit[jdex]);
              }
           }
