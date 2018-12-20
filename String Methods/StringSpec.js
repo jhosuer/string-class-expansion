@@ -131,8 +131,8 @@ let string = new String();
     it('To check that the string is a question', () => {
         expect(str2).toBe('goT TO BE a GROUP');
     });
-    const str3 = '11,111,111,111,100'.inverseCase();
+    const str3 = 'I go places like it was made from my dresses'.inverseCase();
     it('To check that the string is a question', () => {
-        expect(str3).toBe(11111111111100);
+        expect(str3).toBe('i GO PLACES LIKE IT WAS MADE FROM MY DRESSES');
     });
  });
