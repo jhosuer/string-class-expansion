@@ -117,3 +117,22 @@ let string = new String();
         expect(str3).toBe(11111111111100);
     });
  });
+
+ describe('This returns each letter in the string as an inverse of its current case', () => {
+    const str = 'Joshuafad'.inverseCase();
+    it('To remove the comma in the first two digits', () => {
+        expect(str).toBe('jOSHUAFAD');
+    });
+    const str1 = 'JosAshuDFaFafad'.inverseCase();
+    it('To check that the string is not a question', () => {
+        expect(str1).toBe('jOSaSHUdfAfAFAD');
+    });
+    const str2 = 'GOt to be A group'.inverseCase();
+    it('To check that the string is a question', () => {
+        expect(str2).toBe('goT TO BE a GROUP');
+    });
+    const str3 = '11,111,111,111,100'.inverseCase();
+    it('To check that the string is a question', () => {
+        expect(str3).toBe(11111111111100);
+    });
+ });
