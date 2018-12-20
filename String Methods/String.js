@@ -1,8 +1,10 @@
+/*This function checks if a vowel exist in a string. Call it using the string.hasVowels(); method*/ 
 String.prototype.hasVowels = function() {
     let checker = /(a|e|i|o|u)/i;
     return checker.test(this);
   }
 
+/*This function returns a given string in upper case. Call it using the string.toUpper(); method*/ 
 String.prototype.toUpper = function(){
     let pointer = this.split('');
     let resultGroup = [];
@@ -18,7 +20,7 @@ String.prototype.toUpper = function(){
     return result;
 }
 
-
+/*This function returns a given string in lower case. Call it using the string.toLower(); method*/ 
 String.prototype.toLower = function() {
     let pointer = this.split('');
     let resultGroup = [];
@@ -35,6 +37,7 @@ String.prototype.toLower = function() {
     return result;
 }
 
+/*This function returns a given string in with the first character in upper case format. Call it using the string.toUcFirst(); method*/
 
 String.prototype.UcFirst = function(){
     let pointer = Object.values(this).join('');
@@ -48,12 +51,13 @@ String.prototype.UcFirst = function(){
 }
 
 
+/*This function checks if a string is actually a question or not. Call it using the string.isQuestion(); method*/ 
 String.prototype.isQuestion = function() {
     let question = /\?$/;
     return question.test(this.trim());
 }
     
-
+/*This function returns a given string in an array format. Call it using the string.words(); method*/ 
 String.prototype.words = function() {
     let pointer = Object.values(this).join('');
     let checker = /(\w+)(?:\s+)/;
@@ -67,17 +71,23 @@ String.prototype.words = function() {
     return result;
 }
       
-
+/*
+This function returns a given number of words from a given string. Call it using the string.wordCount(); method
+*/ 
 String.prototype.wordCount = function() {
     let result = this.words();
     return result.length;
 }
 
+/*
+This function converts a given string in to a currency format. Call it using the string.toCurrency(); method
+*/ 
 String.prototype.toCurrency = function(){
 
 }
     
-    
+/*This function returns a given given currency without the formatiing. Call it using the string.fromCurrency(); method*/
+     
 String.prototype.fromCurrency = function() {
     let input = this.split('');
     let resultGroup = [];
@@ -93,6 +103,10 @@ String.prototype.fromCurrency = function() {
     return Number(result);
 
 }
+
+/*
+This function returns the given of a given string. Call it using the string.inverseCase(); method
+*/ 
 String.prototype.inverseCase = function() {
     let input = Object.values(this).join('');
     let resultGroup = [];
@@ -111,6 +125,10 @@ String.prototype.inverseCase = function() {
     return result;
 }
 
+
+/*
+This function returns a given string with the first letter as a lowercase but with the remaining as an alternate of the first. Call it using the string.alternatingCase(); method
+*/ 
 String.prototype.alternatingCase = function() {
     let input = Object.values(this).join('');
     let resultGroup = [];
@@ -130,6 +148,10 @@ String.prototype.alternatingCase = function() {
     return result;
 }
 
+
+/*
+This function returns a given number as the word representation. Call it using the string.numberWords(); method
+*/
 String.prototype.numberWords = function() {
     let input = Object.values(this).join('');
     let digit = ['zero','one', 'two', 'three','four','five','six','seven','eight','nine']; 
@@ -144,6 +166,10 @@ String.prototype.numberWords = function() {
     let result = resultGroup.join(' ');
     return result;
 }
+
+/*
+This function checks if a given function has more than one number or not. Call it using the string.isDigit(); method
+*/
 
 String.prototype.isDigit = function() {
     let numberChecker = /^\d{1}$/;
