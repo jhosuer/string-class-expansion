@@ -54,3 +54,47 @@ let string = new String();
         expect(str2).toBe('JOSHUA');
     });
  });
+
+ describe('Test if a string ends with a question mark or not', () => {
+    const str = 'What is the meaning of Love? '.isQuestion();
+    it('To test if the str above if the function passed accepted a question', () => {
+        expect(str).toBeTruthy();
+    });
+    const str1 = 'Joshua is a man'.isQuestion();
+    it('To check that the string is not a question', () => {
+        expect(str1).toBeFalsy();
+    });
+    const str2 = "Joshua, isn't razz, is he?".isQuestion();
+    it('To check that the string is a question', () => {
+        expect(str2).toBeTruthy();
+    });
+ });
+
+ describe('Test return a list of words as an array', () => {
+    const str = 'What is the meaning of Love'.words();
+    it('To test if the str above if the function passed accepted a question', () => {
+        expect(str).toBe(['What', 'is', 'the', 'meaning', 'of', 'Love']);
+    });
+    const str1 = 'Joshua is a man 123'.words();
+    it('To check that the string is not a question', () => {
+        expect(str1).toBe(['Joshua', 'is', 'a', 'man', '123']);
+    });
+    const str2 = "".words();
+    it('To check that the string is a question', () => {
+        expect(str2).toBe([]);
+    });
+ });
+ describe('Test return the length of words', () => {
+    const str = 'What is the meaning of Love'.wordCount();
+    it('To test if the str above if the function passed accepted a question', () => {
+        expect(str).toBe(6);
+    });
+    const str1 = 'Joshua is a man 123'.wordCount();
+    it('To check that the string is not a question', () => {
+        expect(str1).toBe(5);
+    });
+    const str2 = "".wordCount();
+    it('To check that the string is a question', () => {
+        expect(str2).toBe(0);
+    });
+ });
