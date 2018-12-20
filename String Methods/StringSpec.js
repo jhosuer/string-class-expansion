@@ -73,15 +73,15 @@ let string = new String();
  describe('Test return a list of words as an array', () => {
     const str = 'What is the meaning of Love'.words();
     it('To test if the str above if the function passed accepted a question', () => {
-        expect(str).toBe(['What', 'is', 'the', 'meaning', 'of', 'Love']);
+        expect(str).toEqual(['What', 'is', 'the', 'meaning', 'of', 'Love']);
     });
     const str1 = 'Joshua is a man 123'.words();
     it('To check that the string is not a question', () => {
-        expect(str1).toBe(['Joshua', 'is', 'a', 'man', '123']);
+        expect(str1).toEqual(['Joshua', 'is', 'a', 'man', '123']);
     });
     const str2 = "".words();
     it('To check that the string is a question', () => {
-        expect(str2).toBe([]);
+        expect(str2).toEqual([]);
     });
  });
  describe('Test return the length of words', () => {
@@ -96,5 +96,24 @@ let string = new String();
     const str2 = "".wordCount();
     it('To check that the string is a question', () => {
         expect(str2).toBe(0);
+    });
+ });
+
+ describe('This returns a number representation of the Currency String', () => {
+    const str = '11,111.11'.fromCurrency();
+    it('To remove the comma in the first two digits', () => {
+        expect(str).toBe(11111.11);
+    });
+    const str1 = '1,111,111.11'.fromCurrency();
+    it('To check that the string is not a question', () => {
+        expect(str1).toBe(1111111.11);
+    });
+    const str2 = '1,111,111,111,111,111'.fromCurrency();
+    it('To check that the string is a question', () => {
+        expect(str2).toBe(1111111111111111);
+    });
+    const str3 = '11,111,111,111,100'.fromCurrency();
+    it('To check that the string is a question', () => {
+        expect(str3).toBe(11111111111100);
     });
  });
