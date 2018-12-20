@@ -161,15 +161,15 @@ let string = new String();
     it('This should convert the number to string format', () => {
         expect(str).toBe('five six seven');
     });
-    const str1 = '560-0060-7'.alternatingCase();
+    const str1 = '560-0060-7'.numberWords();
     it('To check that the string is not a question', () => {
         expect(str1).toBe('five six zero zero zero six zero seven');
     });
-    const str2 = '560,0060-7'.alternatingCase();
+    const str2 = '560,0060-7'.numberWords();
     it('To check that the string is a question', () => {
         expect(str2).toBe('five six zero zero zero six zero seven');
     });
-    const str3 = '000000000001111000'.alternatingCase();
+    const str3 = '000000000001111000'.numberWords();
     it('To check that the string is a question', () => {
         expect(str3).toBe('zero zero zero zero zero zero zero zero zero zero zero one one one one zero zero zero');
     });
