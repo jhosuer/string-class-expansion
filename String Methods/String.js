@@ -79,5 +79,26 @@ String.prototype.hasVowels = function() {
         let newNumber = cumb.words();
         return newNumber.length;
     }
+
+    String.prototype.toCurrency = function(){
+
+    }
+    
+    
+    String.prototype.fromCurrency = function() {
+        let a = this.split('');
+        let b = [];
+        a.forEach((value) => {
+          if(value == ',') {
+            b.push('');
+          }
+          else {
+            b.push(value);
+          }
+        })
+        let c = b.join('');
+        return Number(c);
+      
+      }
       
 module.exports = String;
