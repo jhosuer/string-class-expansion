@@ -153,5 +153,9 @@ String.prototype.hasVowels = function() {
        return res;
       }
       
-      
+    String.prototype.isDigit = function() {
+        let numberChecker = /^\d{1}$/;
+        return numberChecker.test(this);
+    }
+
 module.exports = String;
